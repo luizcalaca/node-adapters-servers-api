@@ -1,8 +1,13 @@
-import { Request, Response } from 'express'
+import { IController, IRequest, IResponse } from './controller.interface'
 
-export default class GetAllUserController {
+export default class GetAllUserController implements IController {
 
-    async handle(_req: Request, res: Response): Promise<Response> {
-        return res.send('OK')
+    async handle(_req: IRequest): Promise<IResponse> {
+        return {
+            status: 200,
+            payload: {
+                message: 'Olá, adapter express'
+            }
+        }
     }
 }
